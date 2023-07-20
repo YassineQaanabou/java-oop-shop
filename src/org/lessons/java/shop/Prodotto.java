@@ -11,6 +11,9 @@ public class Prodotto {
     private Double iva;
 
     public Prodotto (String name, String description,Double price, Double iva){
+        Random randomGenerator = new Random();
+
+        this.codice = randomGenerator.nextInt(1, 99999999);
         this.name=name;
         this.description=description;
         this.price=price;
@@ -48,17 +51,23 @@ public class Prodotto {
         return this.iva = iva;
     }
 
-    int createCode (){
-        Random randomGenerator = new Random();
+    public String taxedPrice(){
 
-      int codice = randomGenerator.nextInt(1, 99999999);
+        double taxedPriceCalculation= price+(price*(iva/100)) ;
 
-     /*   if (toString(codice).length()<8){
+        String taxedPrice= taxedPriceCalculation +"$";
 
-        }*/
-
-        return codice;
+        return taxedPrice;
     }
+
+    public String extendedName(){
+
+
+        String extendedName= codice + "-" + name;
+
+        return extendedName;
+    }
+
 
     @Override
     public String toString() {
