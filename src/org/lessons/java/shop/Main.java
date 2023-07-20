@@ -19,14 +19,11 @@ public class Main {
         Double iva = scan.nextDouble();
 
         Prodotto prodotto = new Prodotto(name, description, price, iva);
-        prodotto.getCode();
         System.out.println(prodotto);
+
 
         System.out.println(prodotto.taxedPrice());
         System.out.println(prodotto.extendedName());
-
-
-
 
 
         scan.close();

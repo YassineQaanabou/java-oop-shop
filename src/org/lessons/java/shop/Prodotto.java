@@ -13,66 +13,71 @@ public class Prodotto {
     public Prodotto (String name, String description,Double price, Double iva){
         Random randomGenerator = new Random();
 
-        this.codice = randomGenerator.nextInt(1, 99999999);
+
+        this.codice=randomGenerator.nextInt(1, 99999999);
         this.name=name;
         this.description=description;
         this.price=price;
         this.iva=iva;
     }
 
-    public int getCode() {
+    public int getCodice() {
         return this.codice;
     }
 
     public String getName() {
         return this.name;
     }
-    public String setName() {
-       return this.name = name;
+    public void  setName(String name) {
+        this.name = name;
     }
     public String getDescription() {
         return this.description;
     }
-    public String setDescription() {
-        return this.description = description;
+    public void setDescription(String description) {
+         this.description = description;
     }
 
     public Double getPrice() {
         return this.price;
     }
-    public Double setPrice() {
-        return this.price = price;
+    public void setPrice(double price) {
+         this.price = price;
     }
 
     public Double getIva() {
-        return this.iva;
+        return iva;
     }
-    public Double setIva() {
-        return this.iva = iva;
+    public void  setIva(double iva) {
+         this.iva = iva;
     }
 
     public String taxedPrice(){
 
         double taxedPriceCalculation= price+(price*(iva/100)) ;
 
-        String taxedPrice= taxedPriceCalculation +"$";
-
-        return taxedPrice;
+        return taxedPriceCalculation +"$";
     }
 
     public String extendedName(){
 
+        String codiceString=Integer.toString(codice);
 
-        String extendedName= codice + "-" + name;
+        int digitsNeeded= 8- codiceString.length();
+
+        for(int i=0; i<digitsNeeded; i++){
+
+            codiceString= "0" + codiceString;
+        }
+
+        String extendedName= codiceString + "-" + name;
 
         return extendedName;
     }
-
-
     @Override
     public String toString() {
         return "Prodotto{" +
-                "codice='" + codice + '\'' +
+                "codice='" + codice+ '\'' +
                 "nome='" + name + '\'' +
                 ", descrizione='" + description + '\'' +
                 ", prezzo='" + price + "$" +'\'' +
