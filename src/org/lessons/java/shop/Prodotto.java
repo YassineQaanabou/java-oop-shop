@@ -9,6 +9,7 @@ public class Prodotto {
     private String description;
     private Double price;
     private Double iva;
+    private Categoria categoria;
 
     public Prodotto (String name, String description,Double price, Double iva){
         Random randomGenerator = new Random();
@@ -81,7 +82,7 @@ public class Prodotto {
                 "nome='" + name + '\'' +
                 ", descrizione='" + description + '\'' +
                 ", prezzo='" + price + "$" +'\'' +
-                ", iva='" + iva + "%" +'\'' +
+                ", iva='" + iva + "%" +'\'' + categoria.getName() + categoria.getDescription() +
                 '}';
     }
 }
