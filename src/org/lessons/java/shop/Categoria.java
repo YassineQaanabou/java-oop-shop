@@ -15,6 +15,8 @@ public class Categoria {
 
     public String getName() {
         return name;
-
+    }
+    public String toString() {
+        return "categoria prodotto:" + name + "descrizione categoria prodotto:" +description;
     }
 }
